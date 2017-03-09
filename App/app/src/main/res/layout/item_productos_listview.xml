@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/contenedor">
+
+    <TextView
+        android:id="@+id/headProductos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="false"
+        android:text="Productos"
+        android:textColor="#030303"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/nombreProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="Producto1"
+        android:textColor="#030303"
+        android:layout_alignParentEnd="false" />
+
+    <TextView
+        android:id="@+id/headStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="false"
+        android:text="Stock"
+        android:textColor="#000000"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="150dp"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/stockProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="200"
+        android:textColor="#000000"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="150dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="false"
+        android:text="Precio"
+        android:textColor="#000000"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="80dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/precioProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="10"
+        android:textColor="#000000"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="80dp" />
+
+    <ImageView
+        android:id="@+id/productoDestacado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/star_big_on"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/addCarrito"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/carritoplus"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/textView2" />
+
+
+</RelativeLayout>

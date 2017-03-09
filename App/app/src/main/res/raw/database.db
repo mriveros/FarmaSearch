@@ -1,0 +1,91 @@
+PRAGMA foreign_keys = ON;
+DROP TABLE IF EXISTS  `departamento`;
+CREATE TABLE `departamento` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `nombre` text NOT NULL,
+  `descripcion` text,
+  `imagen` text
+) ;
+DROP TABLE IF EXISTS  `farmacia`;
+CREATE TABLE `farmacia` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `nombre` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `imagen` text,
+  `latitud` float NOT NULL,
+  `longitud` float NOT NULL,
+  `telefono` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ;
+DROP TABLE IF EXISTS  `usuario`;
+CREATE TABLE `usuario` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `apellidos` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `tipo` int(11) NOT NULL
+) ;
+DROP TABLE IF EXISTS  `producto`;
+CREATE TABLE `producto` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `nombre` text NOT NULL,
+  `descripcion` text,
+  `imagen` text
+) ;
+DROP TABLE IF EXISTS  `farmacia_departamento`;
+CREATE TABLE `farmacia_departamento` (
+  `id_farmacia` bigint(20) NOT NULL,
+  `id_departamento` bigint(20) NOT NULL,
+	FOREIGN KEY(id_farmacia) REFERENCES farmacia(id) ON DELETE CASCADE,
+	FOREIGN KEY(id_departamento) REFERENCES departamento(id) ON DELETE CASCADE
+) ;
+DROP TABLE IF EXISTS  `pedido`;
+CREATE TABLE `pedido` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `id_usuario` bigint(20) NOT NULL,
+  `formapago` varchar(50) NOT NULL,
+  `fecha` timestamp NOT NULL,
+	FOREIGN KEY(id_usuario) REFERENCES usuario(id) ON DELETE CASCADE
+  
+) ;
+DROP TABLE IF EXISTS  `reserva`;
+CREATE TABLE `reserva` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `id_usuario` bigint(20) NOT NULL,
+  `fecha` timestamp NOT NULL,
+  FOREIGN KEY(id_usuario) REFERENCES usuario(id) ON DELETE CASCADE
+) ;
+DROP TABLE IF EXISTS  `inventario`;
+CREATE TABLE `inventario` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `id_farmacia` bigint(20) NOT NULL,
+  `id_producto` bigint(20) NOT NULL,
+  `id_departamento` bigint(20) NOT NULL,
+  `stock` int(11) NOT NULL DEFAULT '0',
+  `precio` float DEFAULT '0',
+  FOREIGN KEY(id_farmacia) REFERENCES farmacia(id) ON DELETE CASCADE,
+  FOREIGN KEY(id_producto) REFERENCES producto(id) ON DELETE CASCADE,
+  FOREIGN KEY(id_departamento) REFERENCES departamento(id) ON DELETE CASCADE
+  
+);
+DROP TABLE IF EXISTS  `lineapedido`;
+CREATE TABLE `lineapedido` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `id_pedido` bigint(20) NOT NULL,
+  `id_producto` bigint(20) NOT NULL,
+  `id_farmacia` bigint(20) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT '0',
+  FOREIGN KEY(id_farmacia) REFERENCES farmacia(id) ON DELETE CASCADE,
+  FOREIGN KEY(id_pedido) REFERENCES pedido(id) ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS  `lineareserva`;
+CREATE TABLE `lineareserva` (
+  `id` bigint(20) NOT NULL PRIMARY KEY,
+  `id_reserva` bigint(20) NOT NULL,
+  `id_producto` bigint(20) NOT NULL,
+  `id_farmacia` bigint(20) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT '0',
+    FOREIGN KEY(id_farmacia) REFERENCES farmacia(id) ON DELETE CASCADE,
+  FOREIGN KEY(id_reserva) REFERENCES reserva(id) ON DELETE CASCADE
+) ;

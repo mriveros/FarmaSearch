@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	
+	<session-factory>
+		
+		<!-- Database Connection Settings -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/farmasearch</property>
+		<property name="hibernate.connection.username">USUARIO MYSQL</property>
+		<property name="hibernate.connection.password">CONTRASEÑA MYSQL</property>
+		
+		<!-- SQL Dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- Write all executed SQL statements to stdout -->
+		<property name="show_sql">true</property>
+		
+		<!-- Names of the entity classes -->
+		<mapping class="com.chicajimenez.emilio.modelo.Farmacia"/>
+		<mapping class="com.chicajimenez.emilio.modelo.Departamento"/>
+		<mapping class="com.chicajimenez.emilio.modelo.ItemInventario"/>
+		<mapping class="com.chicajimenez.emilio.modelo.Producto"/>
+		<mapping class="com.chicajimenez.emilio.modelo.Pedido"/>
+		<mapping class="com.chicajimenez.emilio.modelo.Reserva"/>
+		<mapping class="com.chicajimenez.emilio.modelo.LineaPedido"/>
+		<mapping class="com.chicajimenez.emilio.modelo.LineaReserva"/>
+		<mapping class="com.chicajimenez.emilio.modelo.Usuario"/>
+		
+	</session-factory>
+	
+</hibernate-configuration>

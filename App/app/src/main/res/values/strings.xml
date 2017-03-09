@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FarmaSearch</string>
+    <string name="title_activity_main">FarmaSearch</string>
+    <string name="title_activity_carga_farmacia">CargaFarmacia</string>
+    <string name="titulo_app">FarmaSearch</string>
+    <string name="openDrawer">Open Drawer </string>
+    <string name="closeDrawer">Close Drawer </string>
+    <string name="title_activity_carga_productos">CargaProductos</string>
+    <string name="title_activity_carga_producto">CargaProducto</string>
+    <string name="title_activity_carga_cesta">Cesta</string>
+</resources>

@@ -1,0 +1,86 @@
+package com.chicajimenez.emilio.modelo;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
+
+
+
+/**
+ * Created by NeN on 19/04/2016.
+ */
+@Entity
+@Table(name = "lineapedido")
+public class LineaPedido implements Serializable {
+	
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
+	
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name="id_pedido")
+	private Pedido pedido;
+	
+	@ManyToOne
+	@JoinColumn(name="id_producto")
+	private Producto producto;
+	
+	@ManyToOne
+	@JoinColumn(name="id_farmacia")
+	private Farmacia farmacia;
+	
+	@Column(name = "cantidad")
+	private int cantidad;
+
+    public long getId() {
+        return id;
+    }
+
+    protected void setId(long id) {
+        this.id = id;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Farmacia getFarmacia() {
+        return farmacia;
+    }
+
+    public void setFarmacia(Farmacia farmacia) {
+        this.farmacia = farmacia;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
+
+    protected Pedido getPedido() {
+		return pedido;
+	}
+
+	protected void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+}

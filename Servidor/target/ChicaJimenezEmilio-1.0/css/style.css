@@ -1,0 +1,38 @@
+
+/* MENÚ RAPIDO */
+
+.botonInicio{
+	background-color: #EFEFEF;
+	color: #595959;
+	text-align: center;
+	height: 135px;
+	border-radius: 5px;
+	margin: 30px;
+	max-width: 162px;
+	font-weight: normal;
+	padding-top: 20px;
+	border: 1px solid #E7E7E7;
+}
+
+.botonInicio img{
+	height: 70px;
+}
+
+.botonInicio:hover{
+	background-color: #E7E7E7;
+	
+}
+
+/* CABECERA DE LAS TABLAS PARA INDEX.BLADE */
+
+.headerIndex{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.botonesEliminar{
+	text-align:center;
+}
+
+.botonesGuardar{
+	text-align:center;
+}
